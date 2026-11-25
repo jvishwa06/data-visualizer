@@ -2,12 +2,12 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - datavisualizerapp
+name: Build and deploy Python app to Azure Web App - datavisualiserapp
 
 on:
   push:
     branches:
-      - Artificial-Intelligence-and-Data-Science
+      - main
   workflow_dispatch:
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.8'
 
       - name: Create and start virtual environment
         run: |
@@ -65,14 +65,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6CA42551B36642F7B1CA2933F1307DF5 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_76643A7189294F818F50092227B771EF }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_60A47C48EA5E4C03BB15F95E7A9315F0 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D52F3E5D7D134B4884ED6C54BE68A27C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D3DD9F2AAC7F412CAE3785E16EF66059 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A4370D26792D4157B58A384EF4361565 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'datavisualizerapp'
+          app-name: 'datavisualiserapp'
           slot-name: 'Production'
           
